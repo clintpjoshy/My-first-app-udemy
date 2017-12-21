@@ -1,0 +1,24 @@
+<!-- this is not 2 way binding. This is only one way but will update the value at every keystroke -->
+<input
+  class="form-control"
+  type="input"
+  (input)="onUserInput($event)" />
+
+<!-- below code implements 2 way binding but not the above code. above code only will run and update in one way and it doesn't update if the other part is updated-->
+<input
+  class="form-control"
+  type="input"
+  [(ngModel)]="userInput" />
+<button
+   class="btn btn-primary"
+   [disabled]="!allowServer"
+   (click)="onCreateNewServer()">
+   Add Server
+</button>
+{{userInput}}
+<p *ngIf="addServer; else noServer" [innerText]="allowServer"></p>
+<ng-template #noServer>
+  <p>No Server </p>
+</ng-template>
+<p>{{newServerAdded}}</p>
+<app-server *ngFor="let server of servers"></app-server>

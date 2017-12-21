@@ -1,0 +1,22 @@
+  <div class="form-group">
+    <label>Server or Blueprint Name</label>
+    <!--<input type="input" class="form-control" [(ngModel)]="newServerName" />-->
+<!-- this local reference stores the whole element temperorily and can be passed as a parameter. And this can be used in ts file to reference to current value. in this case 2 way binding could be avoided -->
+    <input type="input" class="form-control" #serverInput />
+  </div>  
+  <div class="form-group">
+    <label>Server or BluePrint Content</label>
+    <!--<input type="input" class="form-control" [(ngModel)]="newServerContent" />-->
+<!-- same way as above to save the element reference which is local -->
+    <input type="input" class="form-control" #serverContent />
+  </div>  
+<button class="btn btn-primary"
+  (click)="addServer(serverInput)">
+  Add Server
+</button>
+<button class="btn btn-primary"
+  (click)="addBlueprint(serverInput)">
+  Add Blueprint
+</button>
+<hr />
+
